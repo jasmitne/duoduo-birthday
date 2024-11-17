@@ -1,0 +1,97 @@
+# Query: 
+# ContextLines: 1
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fbe7f3;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff4081;
+        }
+        .quiz-container {
+            margin: 20px auto;
+            max-width: 600px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        .answer {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #ff99cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .answer:hover {
+            background: #ff4081;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>How Well Do You Know Us?</h1>
+    <div class="quiz-container">
+        <div class="question">
+            <p><strong>1. Where did we go on our first date?</strong></p>
+            <button class="answer" onclick="checkAnswer(1, true)">a) Coffee Shop</button>
+            <button class="answer" onclick="checkAnswer(1, false)">b) Movie Theater</button>
+            <button class="answer" onclick="checkAnswer(1, false)">c) Park</button>
+        </div>
+        <div class="question">
+            <p><strong>2. What's my favorite dessert?</strong></p>
+            <button class="answer" onclick="checkAnswer(2, false)">a) Chocolate Cake</button>
+            <button class="answer" onclick="checkAnswer(2, true)">b) Ice Cream</button>
+            <button class="answer" onclick="checkAnswer(2, false)">c) Donuts</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let score = 0;
+
+        function checkAnswer(question, isCorrect) {
+            if (isCorrect) {
+                score++;
+            }
+            if (question === 1) {
+                alert(isCorrect ? "Correct! 🥳" : "Oops, try the next one!");
+            }
+            if (question === 2) {
+                document.getElementById("result").textContent = 
+                    isCorrect
+                        ? "Correct! You know me so well! 🎉"
+                        : "Not quite, but I still love you! ❤️";
+
+                // Show final score
+                setTimeout(() => {
+                    alert(`Your final score is: ${score}/2!`);
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>
